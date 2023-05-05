@@ -93,7 +93,7 @@ export default function Board({ xIsNext, squares, onPlay }) {
     const url = "https://64399062bd3623f1b9a3051a.mockapi.io/winners";
     const data = {
       fecha: fechaActualModified,
-      ganador: winner,
+      name: winner,
     };
     axios.post(url, data);
   } else {

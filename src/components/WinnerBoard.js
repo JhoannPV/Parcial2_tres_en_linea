@@ -8,7 +8,7 @@ function Ganadores({ winners }) {
               <li key={winner.id}>
                 <p>
                   <strong>
-                    Ganador: {winner.ganador}
+                    Ganador: {winner.name}
                     <br />
                     el {winner.fecha}
                   </strong>

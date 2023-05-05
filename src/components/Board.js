@@ -41,7 +41,7 @@ export default function Board({ xIsNext, squares, onPlay }) {
   let dateSeconds = dateHoy.getSeconds();
   let dateTime;
   console.log(dateHoy);
-  if (dateHours > 12) {
+  if (dateHours > 11) {
     if (dateHours === 13) {
       dateHours = 1;
     }

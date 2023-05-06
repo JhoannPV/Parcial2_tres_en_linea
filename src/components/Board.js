@@ -137,10 +137,6 @@ export default function Board({ xIsNext, squares, onPlay }) {
     getWinners();
   }, []);
 
-  function pageRefhesh() {
-    window.location.reload();
-  }
-
   let board = [];
   for (let index = 0; index < 3; index++) {
     let cols = [];
@@ -170,7 +166,7 @@ export default function Board({ xIsNext, squares, onPlay }) {
         Para ver y Actualizar el historial de ganadores, recargue la página o
         presione el botón de cargar ganadores.
       </p>
-      <ButtonRefresh onClick={pageRefhesh} />
+      <ButtonRefresh />
       <WinnerBoard winners={winners} />
     </>
   );

@@ -1,7 +1,10 @@
-function ButtonRefresh({ onClick }) {
+function ButtonRefresh() {
+  function pageRefhesh() {
+    window.location.reload();
+  }
   return (
     <>
-      <button className="fontSizeButton3" onClick={onClick}>
+      <button className="fontSizeButton3" onClick={pageRefhesh}>
         Cargar Ganadores
       </button>
     </>

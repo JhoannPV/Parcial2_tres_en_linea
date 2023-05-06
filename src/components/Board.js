@@ -2,6 +2,7 @@ import Square from "./Square";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import WinnerBoard from "./WinnerBoard";
+import ButtonRefresh from "./ButtonRefresh";
 
 export default function Board({ xIsNext, squares, onPlay }) {
   const winInfo = calculateWinner(squares);
@@ -136,6 +137,10 @@ export default function Board({ xIsNext, squares, onPlay }) {
     getWinners();
   }, []);
 
+  function pageRefhesh() {
+    window.location.reload();
+  }
+
   let board = [];
   for (let index = 0; index < 3; index++) {
     let cols = [];
@@ -162,8 +167,10 @@ export default function Board({ xIsNext, squares, onPlay }) {
       <div className="status">{status}</div>
       {board}
       <p className="aviso-historial">
-        Para ver y Actualizar el historial de ganadores, recargue la página.
+        Para ver y Actualizar el historial de ganadores, recargue la página o
+        presione el botón de cargar ganadores.
       </p>
+      <ButtonRefresh onClick={pageRefhesh} />
       <WinnerBoard winners={winners} />
     </>
   );

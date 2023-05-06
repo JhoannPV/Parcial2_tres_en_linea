@@ -75,12 +75,34 @@ export default function Board({ xIsNext, squares, onPlay }) {
     if (dateHours === 23) {
       dateHours = 11;
     }
-    dateTime = `${dateHours}:${dateMinutes}:${dateSeconds} p. m.`;
+    if (dateMinutes < 10 && dateSeconds < 10) {
+      dateTime = `${dateHours}:0${dateMinutes}:0${dateSeconds} p. m.`;
+    }
+    if (dateMinutes >= 10 && dateSeconds < 10) {
+      dateTime = `${dateHours}:${dateMinutes}:0${dateSeconds} p. m.`;
+    }
+    if (dateMinutes < 10 && dateSeconds >= 10) {
+      dateTime = `${dateHours}:0${dateMinutes}:${dateSeconds} p. m.`;
+    }
+    if (dateMinutes >= 10 && dateSeconds >= 10) {
+      dateTime = `${dateHours}:${dateMinutes}:${dateSeconds} p. m.`;
+    }
   } else {
     if (dateHours === 0) {
       dateHours = 12;
     }
-    dateTime = `${dateHours}:${dateMinutes}:${dateSeconds} a. m.`;
+    if (dateMinutes < 10 && dateSeconds < 10) {
+      dateTime = `${dateHours}:0${dateMinutes}:0${dateSeconds} p. m.`;
+    }
+    if (dateMinutes >= 10 && dateSeconds < 10) {
+      dateTime = `${dateHours}:${dateMinutes}:0${dateSeconds} p. m.`;
+    }
+    if (dateMinutes < 10 && dateSeconds >= 10) {
+      dateTime = `${dateHours}:0${dateMinutes}:${dateSeconds} p. m.`;
+    }
+    if (dateMinutes >= 10 && dateSeconds >= 10) {
+      dateTime = `${dateHours}:${dateMinutes}:${dateSeconds} p. m.`;
+    }
   }
   let dateHoyModified = `${dateDia}/${dateMes}/${dateAño}`;
   let fechaActualModified = `${dateHoyModified} a las ${dateTime}`;

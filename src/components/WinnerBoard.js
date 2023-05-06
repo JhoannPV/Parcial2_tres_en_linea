@@ -1,4 +1,4 @@
-function Ganadores({ winners }) {
+function WinnerBoard({ winners }) {
   return (
     <>
       <ul className="historial-ganador">
@@ -22,4 +22,4 @@ function Ganadores({ winners }) {
   );
 }
 
-export default Ganadores;
+export default WinnerBoard;

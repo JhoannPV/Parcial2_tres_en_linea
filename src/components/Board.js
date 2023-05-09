@@ -93,16 +93,16 @@ export default function Board({ xIsNext, squares, onPlay }) {
       dateHours = 12;
     }
     if (dateMinutes < 10 && dateSeconds < 10) {
-      dateTime = `${dateHours}:0${dateMinutes}:0${dateSeconds} p. m.`;
+      dateTime = `${dateHours}:0${dateMinutes}:0${dateSeconds} a. m.`;
     }
     if (dateMinutes >= 10 && dateSeconds < 10) {
-      dateTime = `${dateHours}:${dateMinutes}:0${dateSeconds} p. m.`;
+      dateTime = `${dateHours}:${dateMinutes}:0${dateSeconds} a. m.`;
     }
     if (dateMinutes < 10 && dateSeconds >= 10) {
-      dateTime = `${dateHours}:0${dateMinutes}:${dateSeconds} p. m.`;
+      dateTime = `${dateHours}:0${dateMinutes}:${dateSeconds} a. m.`;
     }
     if (dateMinutes >= 10 && dateSeconds >= 10) {
-      dateTime = `${dateHours}:${dateMinutes}:${dateSeconds} p. m.`;
+      dateTime = `${dateHours}:${dateMinutes}:${dateSeconds} a. m.`;
     }
   }
   let dateHoyModified = `${dateDia}/${dateMes}/${dateAño}`;

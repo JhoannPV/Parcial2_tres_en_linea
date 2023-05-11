@@ -34,88 +34,18 @@ export default function Board({ xIsNext, squares, onPlay }) {
   }
 
   let dateHoy = new Date();
-  let dateDia = dateHoy.getDate();
-  let dateMes = dateHoy.getMonth() + 1;
-  let dateAño = dateHoy.getFullYear();
-  let dateHours = dateHoy.getHours();
-  let dateMinutes = dateHoy.getMinutes();
-  let dateSeconds = dateHoy.getSeconds();
-  let dateTime;
-
-  if (dateHours > 11) {
-    if (dateHours === 13) {
-      dateHours = 1;
-    }
-    if (dateHours === 14) {
-      dateHours = 2;
-    }
-    if (dateHours === 15) {
-      dateHours = 3;
-    }
-    if (dateHours === 16) {
-      dateHours = 4;
-    }
-    if (dateHours === 17) {
-      dateHours = 5;
-    }
-    if (dateHours === 18) {
-      dateHours = 6;
-    }
-    if (dateHours === 19) {
-      dateHours = 7;
-    }
-    if (dateHours === 20) {
-      dateHours = 8;
-    }
-    if (dateHours === 21) {
-      dateHours = 9;
-    }
-    if (dateHours === 22) {
-      dateHours = 10;
-    }
-    if (dateHours === 23) {
-      dateHours = 11;
-    }
-    if (dateMinutes < 10 && dateSeconds < 10) {
-      dateTime = `${dateHours}:0${dateMinutes}:0${dateSeconds} p. m.`;
-    }
-    if (dateMinutes >= 10 && dateSeconds < 10) {
-      dateTime = `${dateHours}:${dateMinutes}:0${dateSeconds} p. m.`;
-    }
-    if (dateMinutes < 10 && dateSeconds >= 10) {
-      dateTime = `${dateHours}:0${dateMinutes}:${dateSeconds} p. m.`;
-    }
-    if (dateMinutes >= 10 && dateSeconds >= 10) {
-      dateTime = `${dateHours}:${dateMinutes}:${dateSeconds} p. m.`;
-    }
-  } else {
-    if (dateHours === 0) {
-      dateHours = 12;
-    }
-    if (dateMinutes < 10 && dateSeconds < 10) {
-      dateTime = `${dateHours}:0${dateMinutes}:0${dateSeconds} a. m.`;
-    }
-    if (dateMinutes >= 10 && dateSeconds < 10) {
-      dateTime = `${dateHours}:${dateMinutes}:0${dateSeconds} a. m.`;
-    }
-    if (dateMinutes < 10 && dateSeconds >= 10) {
-      dateTime = `${dateHours}:0${dateMinutes}:${dateSeconds} a. m.`;
-    }
-    if (dateMinutes >= 10 && dateSeconds >= 10) {
-      dateTime = `${dateHours}:${dateMinutes}:${dateSeconds} a. m.`;
-    }
-  }
-  let dateHoyModified = `${dateDia}/${dateMes}/${dateAño}`;
-  let fechaActualModified = `${dateHoyModified} a las ${dateTime}`;
+  let timeToday = dateHoy.toLocaleTimeString();
+  let dateToday = dateHoy.toLocaleDateString();
+  let fechaActual = `${dateToday} a las ${timeToday}`;
 
   const winner = calculateWinner(squares).winner;
   let status;
-  console.log(winner);
+
   if (winner) {
     status = "Ganador: " + winner;
     const url = "https://64399062bd3623f1b9a3051a.mockapi.io/winners";
     const data = {
-      fecha: fechaActualModified,
+      fecha: fechaActual,
       name: winner,
     };
     axios.post(url, data);
